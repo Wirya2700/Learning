@@ -90,5 +90,25 @@ namespace Learning.Tests
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod()]
+        public void IsValidUserNameTest_ValidName()
+        {
+            string name = "john_doe123";
+
+            var result = RegularExpression.IsValidUserName(name);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod()]
+        public void IsValidUserNameTest_InvalidName()
+        {
+            string name = "John-Doe";
+
+            var result = RegularExpression.IsValidUserName(name);
+
+            Assert.IsFalse(result);
+        }
     }
 }

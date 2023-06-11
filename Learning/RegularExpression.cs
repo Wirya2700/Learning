@@ -50,6 +50,27 @@ namespace Learning
             }
         }
 
+        public static bool IsValidUserName(string name)
+        {
+            try
+            {
+                //expected result
+                //1. Can only consist of lowercase letters, numbers, and the underscore sign (_).
+                //2. Minimum length of 3 characters and maximum 16 characters.
+
+                Regex regexDocNo = new Regex(
+                    @"^[a-z0-9_]{3,16}$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromSeconds(5));
+
+                return regexDocNo.IsMatch(name);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public static bool IsEmail(string email)
         {
             try
