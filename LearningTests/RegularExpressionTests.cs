@@ -70,5 +70,25 @@ namespace Learning.Tests
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod()]
+        public void IsValidPasswordTest_ValidPassword()
+        {
+            string password = "Password123!";
+
+            var result = RegularExpression.IsValidPassword(password);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod()]
+        public void IsValidPasswordTest_InvalidPassword()
+        {
+            string password = "password";
+
+            var result = RegularExpression.IsValidPassword(password);
+
+            Assert.IsFalse(result);
+        }
     }
 }

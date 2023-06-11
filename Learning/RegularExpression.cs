@@ -9,6 +9,47 @@ namespace Learning
 {
     public static class RegularExpression
     {
+        public static bool IsDocumentNumber(string documentNumber)
+        {
+            try
+            {
+                //format document: ABC/2023/VII/00001
+
+                Regex regexDocNo = new Regex(
+                    @"^(\w{3})/(\d{4})/(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII)/(\d{5,})$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromSeconds(5));
+
+                return regexDocNo.IsMatch(documentNumber);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public static bool IsValidPassword(string password)
+        {
+            try
+            {
+                //expected result
+                //1. minimum 8 character
+                //2. contain one lower case, upper case, number
+                //3. optional using character !, @, #, $, %
+
+                Regex regexDocNo = new Regex(
+                    @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%]{8,}$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromSeconds(5));
+
+                return regexDocNo.IsMatch(password);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public static bool IsEmail(string email)
         {
             try
@@ -36,25 +77,6 @@ namespace Learning
                     TimeSpan.FromSeconds(5));
 
                 return regexNumber.IsMatch(phone);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        public static bool IsDocumentNumber(string documentNumber)
-        {
-            try
-            {
-                //format document: ABC/2023/VII/00001
-
-                Regex regexDocNo = new Regex(
-                    @"^(\w{3})/(\d{4})/(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII)/(\d{5,})$",
-                    RegexOptions.IgnoreCase,
-                    TimeSpan.FromSeconds(5));
-
-                return regexDocNo.IsMatch(documentNumber);
             }
             catch
             {
