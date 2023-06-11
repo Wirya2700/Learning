@@ -71,6 +71,27 @@ namespace Learning
             }
         }
 
+        public static bool IsValidFileName(string fileName)
+        {
+            try
+            {
+                //expected result
+                //1. File names can consist of a combination of letters(both uppercase and lowercase), numbers, hyphens(-), and underscores(_).
+                //2. File extensions must begin with a period(.) and consist of two to four lowercase letters.
+
+                Regex regexDocNo = new Regex(
+                    @"^[a-zA-Z0-9_-]+.[a-z]{2,4}$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromSeconds(5));
+
+                return regexDocNo.IsMatch(fileName);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public static bool IsEmail(string email)
         {
             try

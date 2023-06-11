@@ -110,5 +110,25 @@ namespace Learning.Tests
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod()]
+        public void IsValidFileNameTest_ValidFileName()
+        {
+            string fileName = "my_document.pdf";
+
+            var result = RegularExpression.IsValidFileName(fileName);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod()]
+        public void IsValidFileNameTest_InvalidFileName()
+        {
+            string fileName = "report.docx_";
+
+            var result = RegularExpression.IsValidFileName(fileName);
+
+            Assert.IsFalse(result);
+        }
     }
 }
