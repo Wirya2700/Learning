@@ -50,5 +50,25 @@ namespace Learning.Tests
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod()]
+        public void IsDocumentNumberTest_ValidDocNumber()
+        {
+            string docNumber = "ABC/2023/VII/10001";
+
+            var result = RegularExpression.IsDocumentNumber(docNumber);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod()]
+        public void IsDocumentNumberTest_InvalidDocNumber()
+        {
+            string docNumber = "ABCD/2023/VIIs/10001";
+
+            var result = RegularExpression.IsDocumentNumber(docNumber);
+
+            Assert.IsFalse(result);
+        }
     }
 }
